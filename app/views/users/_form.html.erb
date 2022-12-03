@@ -1,0 +1,45 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> Cant Create user:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="card">
+  <h2 class="card-header"></h2>
+  <div class="card-body">
+  <div class="form-group">
+    <%= form.text_field :first_name, class:"form-control",placeholder:"First Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :last_name, class:"form-control",placeholder:"Last Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :adress, class:"form-control",placeholder:"Adress" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :email, class:"form-control",placeholder:"Email" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :phone, class:"form-control",placeholder:"Phone No." %>
+  </div>
+  <div class="form-group">
+    <%= form.number_field :client_id, id: :users_client_id, class:"form-control",value: current_client.id, type: :hidden %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @user.first_name %><%= @user.last_name %></h1>
+  <p class="lead">
+    <span>Adress: </span><%= @user.adress %> <br>
+    <span>Email: </span><%= @user.email %> <br>
+    <span>Phone: </span><%= @user.phone %> 
+  </p>
+  <hr class="my-4">
+  <div class="d-flex">
+    <%= link_to "Edit", edit_user_path(@user), class:"btn btn-warning " %>
+    <%= button_to "Delete", @user,class:"ml-1 btn btn-danger", method: :delete %>
+  </div>
+</div>
+
+
+
+<div>
+  <%= link_to "Back", users_path,class:"btn btn-secondary" %>
+</div>
